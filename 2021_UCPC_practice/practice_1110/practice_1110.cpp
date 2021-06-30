@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// 문자열로도 풀어보기
+
 int main()
 {
 	int n, left, right, addedRight;
