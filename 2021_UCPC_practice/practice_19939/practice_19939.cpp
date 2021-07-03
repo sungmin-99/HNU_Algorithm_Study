@@ -13,8 +13,11 @@ int main()
 
 	cin >> n >> k;
 
-	if (n < k)
-		cout << -1;
+	//if (n / 2 < k)
+	//	cout << -1;
+
+	cout << n / 2;
 	
+
 	return 0;
 }
