@@ -7,11 +7,11 @@ int main()
 	cin.tie(NULL); cout.tie(NULL);
 	ios_base::sync_with_stdio(false);
 
-	int n, t;
-	long long m;
+	int n;
+	long long m = 0, t;
 	cin >> n;
 
-	int* arrayN = new int[n];
+	long long* arrayN = new long long[n];
 
 	for (int i = 0; i < n; i++)
 	{
@@ -23,14 +23,14 @@ int main()
 	if (n % 2 == 0)
 	{
 		m = arrayN[0] + arrayN[n - 1];
-		for (int i = 1; i < n / 2; i++)
-			m = max((int)m, arrayN[i] + arrayN[n - 1 - i]);
+		for (int i = 0; i < n / 2; i++)
+			m = max(m, arrayN[i] + arrayN[n - 1 - i]);
 	}
 	else
 	{
 		m = arrayN[n - 1];
-		for (int i = 0; i < 2; i++)
-			m = max((int)m, arrayN[i] + arrayN[n - 2 - i]);
+		for (int i = 0; i < (n - 1) / 2; i++)
+			m = max(m, arrayN[i] + arrayN[n - 2 - i]);
 	}
 	cout << m;
 
