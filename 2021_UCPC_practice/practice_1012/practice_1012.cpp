@@ -20,7 +20,7 @@ int main()
 
 	while (t--)
 	{
-		cin >> n >> m >> k;
+		cin >> n >> m >> k;  // 세로, 가로, 배추 심어진 개수
 
 		for (int i = 0; i < k; i++)
 		{
