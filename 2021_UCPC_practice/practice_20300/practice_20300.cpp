@@ -8,7 +8,7 @@ int main()
 	ios_base::sync_with_stdio(false);
 
 	int n; // 운동기구 개수
-	long long m = 0, t; // m - 근손실 정도, t - 운동기구의 근손실 정도
+	long long m = 0, t; // m - 총 근손실 정도, t - 운동기구의 근손실 정도
 	cin >> n;
 
 	long long* arrayN = new long long[n];
