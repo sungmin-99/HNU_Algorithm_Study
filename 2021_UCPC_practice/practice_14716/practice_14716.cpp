@@ -3,22 +3,26 @@ using namespace std;
 
 int m, n;
 int ans = 0;
-bool banner[250][250];
-bool visited[250][250];
+int banner[251][251];
+bool visited[251][251];
 int dx[8] = { 1, 0, -1, 0, 1, 1, -1, -1 };
 int dy[8] = { 0, 1, 0, -1, 1, -1, -1, 1 };
 
-void dfs(int x, int y)
+void dfs(int y, int x)
 {
-	visited[x][y] = true;
+	visited[y][x] = true;
 	for (int i = 0; i < 8; i++)
 	{
 		int checkX = x + dx[i];
 		int checkY = y + dy[i];
 		if (checkX < 0 || checkX >= n || checkY < 0 || checkY >= m)
 			continue;
-		if (banner[checkX][checkY] && !visited[checkX][checkY])
-			dfs(checkX, checkY);
+		if (banner[checkY][checkX] == 1 && visited[checkY][checkX] == 0)
+		{
+			visited[checkY][checkX]= 1;
+			dfs(checkY, checkX);
+		}
+			
 	}
 }
 
@@ -36,14 +40,14 @@ int main()
 		}
 	}
 
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < m; i++)
 	{
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
 		{
-			if (banner[i][j] == 1 && !visited[i][j])
+			if (banner[i][j] == 1 && visited[i][j] == 0)
 			{
-				ans++;
 				dfs(i, j);
+				ans++;
 			}
 		}
 	}

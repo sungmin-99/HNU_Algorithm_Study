@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
+#include <string.h>
 using namespace std;
 
 int n, m;
-bool map[51][51];
-bool visited[51][51];
+bool map[50][50];
+bool visited[50][50];
 int dx[4] = { 1, 0, -1, 0 };
 int dy[4] = { 0, 1, 0, -1 };
 
@@ -20,6 +20,8 @@ int main()
 	while (t--)
 	{
 		cin >> n >> m >> k;  // 세로, 가로, 배추 심어진 개수
+		memset(map, 0, sizeof(map));
+		memset(visited, 0, sizeof(visited));
 
 		for (int i = 0; i < k; i++)
 		{
@@ -35,13 +37,12 @@ int main()
 			{
 				if (map[i][j] && !visited[i][j])
 				{
-					worm++;
 					dfs(i, j);
+					worm++;
 				}
 			}
 		}
 		cout << worm << '\n';
-		memset(map, 0, sizeof(map));
 
 	}
 	return 0;
