@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
+// ¿Ø±‚≥Û πË√ﬂ
 
 int n, m;
-bool map[50][50];
-bool visited[50][50];
+bool map[51][51];
+bool visited[51][51];
 int dx[4] = { 1, 0, -1, 0 };
 int dy[4] = { 0, 1, 0, -1 };
 
@@ -34,9 +35,9 @@ int main()
 		{
 			for (int j = 0; j < m; j++)
 			{
-				if (map[i][j] && !visited[i][j])
+				if (map[j][i] && !visited[j][i])
 				{
-					dfs(i, j);
+					dfs(j, i);
 					worm++;
 				}
 			}
@@ -49,15 +50,15 @@ int main()
 
 bool dfs(int x, int y)
 {
-	visited[x][y] = true;
+	visited[y][x] = true;
 	for (int i = 0; i < 4; i++)
 	{
 		int checkX = x + dx[i];
 		int checkY = y + dy[i];
-		if (x <= -1 || x >= n || y <= -1 || y >= m)
+		if (checkX < 0 || checkX >= n || checkY < 0 || checkY >= m)
 			return false;
-		if (map[checkX][checkY] && !visited[checkX][checkY])
-			dfs(checkX, checkY);
+		if (map[checkY][checkX] && !visited[checkY][checkX])
+			dfs(checkY, checkX);
 	}
 
 }
