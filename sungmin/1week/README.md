@@ -73,5 +73,54 @@ for i in range(1, n + 1):
 <br>
 아이디어 : 각 책마다 word의 길이에 받는 모든 조합을 뽑아내 브루트 포스로 비교
 <br><br>
-<b>틀린 이유 : 시간 복잡도가 너무 비효율적이라 테스트케이스 조차도 제대로 동작하지 않음</b>
+<b>틀린 이유 : 시간 복잡도가 너무 비효율적이라 테스트케이스 조차도 제대로 동작하지 않음
+<br> 생각보다 너무 어려움... 체감상 골드문제들이랑 비슷한듯..
+</b>
 <br><br>
+
+> 정답 코드
+```python
+from itertools import combinations
+
+word = input()
+n = int(input())
+price = []
+book = []
+for _ in range(n):
+    a, b = input().split()
+    price.append(int(a))
+    book.append(b)
+
+wordbit = [0] * 26
+for i in word:
+    wordbit[ord(i) % 65] += 1
+
+ans = 10 ** 10
+for i in range(1, n + 1):
+    com = list(combinations(book, i))
+    for j in com:
+        bit = [0] * 26
+        for k in j:
+            for l in k:
+                bit[ord(l) % 65] += 1
+        check = 0
+        for k in range(26):
+            if wordbit[k] > bit[k]:
+                check = 1
+        if check == 0:
+            for k in j:
+                check += price[book.index(k)]
+        else:
+            continue
+        if ans > check:
+            ans = check
+if ans == 10 ** 10:
+    print("-1")
+else:
+    print(ans)
+```
+<br>
+아이디어 : 첫번째 시도와 마찬가지로 모든 조합을 찾아서 비트마스킹 한다. 비트마스킹을 비교하여 만족한다면 price를 ans에 저장해서 최솟값을 구한다.
+<br><br>
+<b>논리 자체는 어렵지 않으나 구현이 생각보다 복잡하다.</b>
+<br>
