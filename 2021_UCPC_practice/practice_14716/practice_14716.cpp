@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+// Çö¼ö¸·
 
 int m, n;
 int ans = 0;
@@ -22,7 +23,6 @@ void dfs(int y, int x)
 			visited[checkY][checkX]= 1;
 			dfs(checkY, checkX);
 		}
-			
 	}
 }
 
