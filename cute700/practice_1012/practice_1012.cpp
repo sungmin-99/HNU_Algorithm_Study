@@ -1,14 +1,15 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 // ¿Ø±‚≥Û πË√ﬂ
 
 int n, m;
-bool map[51][51];
-bool visited[51][51];
+bool map[50][50];
+bool visited[50][50];
 int dx[4] = { 1, 0, -1, 0 };
 int dy[4] = { 0, 1, 0, -1 };
 
-bool dfs(int x, int y);
+void dfs(int x, int y);
 
 int main()
 {
@@ -23,22 +24,23 @@ int main()
 		memset(map, 0, sizeof(map));
 		memset(visited, 0, sizeof(visited));
 
+		int worm = 0;
 		for (int i = 0; i < k; i++)
 		{
 			int x, y;
 			cin >> x >> y;
-			map[x][y] = true;
+			map[y][x] = 1;
 		}
 
-		int worm = 0;
 		for (int i = 0; i < n; i++)
 		{
 			for (int j = 0; j < m; j++)
 			{
-				if (map[j][i] && !visited[j][i])
+				if (map[i][j] && !visited[i][j])
 				{
-					dfs(j, i);
 					worm++;
+					dfs(i, j);
+					visited[i][j]++;
 				}
 			}
 		}
@@ -48,17 +50,20 @@ int main()
 	return 0;
 }
 
-bool dfs(int x, int y)
+void dfs(int y, int x)
 {
 	visited[y][x] = true;
 	for (int i = 0; i < 4; i++)
 	{
 		int checkX = x + dx[i];
 		int checkY = y + dy[i];
-		if (checkX < 0 || checkX >= n || checkY < 0 || checkY >= m)
-			return false;
+		if (checkX < 0 || checkX >= m || checkY < 0 || checkY >= n)
+			continue;
 		if (map[checkY][checkX] && !visited[checkY][checkX])
+		{
+			visited[checkY][checkX] = 1;
 			dfs(checkY, checkX);
+		}
 	}
 
 }

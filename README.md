@@ -1,9 +1,10 @@
-# 2021_UCPC_practice
-> 2021 UCPC 연습
+# HNU_Algorithm_Study <br>
+> HNU 알고리즘 스터디 <br>
 <br>
 
 ### Write in <br>
-><img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&Color=white"/> 
+><img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a> <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&Color=white"/> 
+
 <br>
 
 백준
@@ -27,4 +28,5 @@
     + 14716 : 충남대 현수막
     + 16508 : 전공책
     + 2178 : 미로탐색
-    + 1449 : 수리공  
+    + 1449 : 수리공 항승
+4. 4주차
