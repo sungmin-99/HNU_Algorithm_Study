@@ -9,7 +9,7 @@ int map[101][101];
 int visited[101][101];
 int n, m;
 
-void bfs(int x, int y)
+int bfs(int x, int y)
 {
 	visited[x][y] = 1;
 	queue <pair <int, int> > q;
@@ -26,8 +26,9 @@ void bfs(int x, int y)
 			int nextX = x + dx[i];
 			int nextY = y + dy[i];
 
-			if (nextX == n && nextY == m)
-				break;
+			if (map[nextX][nextY] == 0) // 벽인 경우 무시
+				continue;
+				
 
 		}
 	}
