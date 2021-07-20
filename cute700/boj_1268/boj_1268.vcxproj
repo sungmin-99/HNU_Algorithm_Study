@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c025a53e-eb6b-4bc0-8554-08ec27158e04}</ProjectGuid>
-    <RootNamespace>practice1286</RootNamespace>
+    <ProjectGuid>{ae2c90c0-9201-401e-82cd-153704131077}</ProjectGuid>
+    <RootNamespace>boj1268</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="practice_1286.cpp" />
+    <ClCompile Include="boj_1268.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

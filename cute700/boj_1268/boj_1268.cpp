@@ -4,7 +4,7 @@ using namespace std;
 // 임시 반장 정하기
 
 int student[1000][5];
-int studentCount[1000][1000] = {0, };
+int studentCount[1000][1000] = { 0, };
 
 int main()
 {
@@ -48,6 +48,6 @@ int main()
 		}
 	}
 
-	
+
 	return 0;
 }

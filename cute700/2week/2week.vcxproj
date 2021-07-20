@@ -22,8 +22,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3103086f-c901-47e6-aca0-0bfcc3b6ab12}</ProjectGuid>
-    <RootNamespace>My2021UCPCpractice</RootNamespace>
+    <ProjectGuid>{2d309b1f-3d17-4cf2-a190-af1277dff9e4}</ProjectGuid>
+    <RootNamespace>My2week</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

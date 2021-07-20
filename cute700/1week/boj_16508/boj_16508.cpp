@@ -3,7 +3,6 @@
 using namespace std;
 // Àü°øÃ¥
 
-
 int main()
 {
 	string text;
@@ -21,5 +20,4 @@ int main()
 	}
 
 	return 0;
-
 }
