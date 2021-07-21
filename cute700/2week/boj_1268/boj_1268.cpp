@@ -4,7 +4,7 @@ using namespace std;
 // 임시 반장 정하기
 
 int student[1000][5];
-int studentCount[1000][1000] = { 0, };
+int studentCount[1000];
 
 int main()
 {
@@ -14,6 +14,8 @@ int main()
 	int num;
 	cin >> num;
 
+	for (int i = 0; i < num; i++)
+		studentCount[i] = 0;
 
 	for (int i = 0; i < num; i++)
 	{
@@ -23,45 +25,40 @@ int main()
 		}
 	}
 
-	//for (int i = 0; i < num; i++)
-	//{
-	//	for (int j = 0; j < 5; j++) // 학년
-	//	{
-	//		cout << student[i][j] << " ";
-	//	}
-	//	cout << endl;
-	//}
-
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < num; i++)
 	{
 		for (int j = 0; j < num; j++)
 		{
-			for (int k = 0; k < num; k++)
+			for (int k = 0; k < 5; k++)
 			{
-				if (k == j)
-					continue;
-				else if (student[j][i] == student[k][i])
+				if (student[i][k] == student[j][k])
 				{
-					studentCount[k][j] = 1;
+					studentCount[i]++;
+					break;
 				}
 			}
 		}
 	}
 
-	int maxCount = 0;
-	int ans = 1; // 모든 학생이 다른 반이었다면 1출력
+	int max = 0; // 초기 최대값 저장
+	int captain = 0; 
 	for (int i = 0; i < num; i++)
 	{
-		int c = 1;
-		for (int j = 0; j <= num; j++)
-			c += studentCount[i][j];
-		if (maxCount < c)
+		if (max < studentCount[i])
 		{
-			maxCount = c;
-			ans = i + 1; // 
+			max = studentCount[i];
+			captain = i + 1;
 		}
+		else if (studentCount[i] == max)
+			if (captain > i)
+				captain = i + 1;
 	}
-	cout << ans;
+	cout << captain;
+
+	//for (int i = 0; i < num; i++) // 학생 별로 몇명이랑 같은 반이었는지 카운트 보기
+	//{
+	//	cout << studentCount[i] << ' ';
+	//}
 
 	return 0;
 }
