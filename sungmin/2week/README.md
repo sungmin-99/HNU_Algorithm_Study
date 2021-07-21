@@ -83,3 +83,46 @@ for i in range(1, len(ans)):
 <b> bfs로 방향그래프를 탐색하여 탐색하는 노드의 개수를 리턴해 비교한다.
 <br>시간 초과로 sys.stdin.readline을 사용하고 pypy로 제출하였다.</b>
 <br><br><br><br><br><br>
+
+# 2. 보물섬
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
+def bfs(x, y):
+    q = deque()
+    q.appendleft((x, y))
+    visit[x][y] = 1
+    while q:
+        x, y = q.pop()
+        for i in range(4):
+            nx, ny = x + dx[i], y + dy[i]
+            if nx < 0 or nx >= n or ny < 0 or ny >= m:
+                continue
+            if visit[nx][ny] == 0 and graph[nx][ny] == 'L':
+                q.appendleft((nx, ny))
+                visit[nx][ny] = visit[x][y] + 1
+    return visit[x][y] - 1
+
+n, m = map(int, input().split())
+graph = []
+for _ in range(n):
+    graph.append(input())
+
+ans = 0
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 'L':
+            visit = [[0] * m for _ in range(n)]
+            ans = max(ans, bfs(i, j))
+print(ans)
+```
+<br>
+<b>bfs와 브루트포스가 익숙하다면 쉽게 해결 가능한 문제<br>
+1. 그래프의 노드가 'L'인 경우 모두 bfs를 돌려서 가장 먼 노드와의 거리를 측정한다.<br>
+2. 그 중 가장 거리가 먼 값을 출력한다.</b>
+<br><br><br><br><br><br>
