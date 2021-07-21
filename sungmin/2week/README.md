@@ -126,3 +126,30 @@ print(ans)
 1. 그래프의 노드가 'L'인 경우 모두 bfs를 돌려서 가장 먼 노드와의 거리를 측정한다.<br>
 2. 그 중 가장 거리가 먼 값을 출력한다.</b>
 <br><br><br><br><br><br>
+
+# 3. 상자의 균형
+```python
+n, l = map(int, input().split())
+box = list(map(int, input().split()))
+box = box[::-1]
+
+num = 0
+check = True
+for i in range(n - 1):
+    num += box[i]
+    if box[i + 1] - l < num / (i + 1) < box[i + 1] + l:
+        continue
+    else:
+        check = False
+        break
+
+if check:
+    print("stable")
+else:
+    print("unstable")
+```
+
+<br>
+<b>상자를 맨 위에서부터 무게 중심이 바로 아래상자 안에 들어가는지 확인한다.
+<br>문제를 잘 읽으면 쉬운 구현만으로 풀 수 있는 문제</b>
+<br><br><br><br><br><br>
