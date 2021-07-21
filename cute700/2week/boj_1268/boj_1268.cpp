@@ -34,20 +34,34 @@ int main()
 
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = 0; j < num - 1; j++)
+		for (int j = 0; j < num; j++)
 		{
-			for (int k = j + 1; k < num; k++)
+			for (int k = 0; k < num; k++)
 			{
-				if (k <= j)
+				if (k == j)
 					continue;
 				else if (student[j][i] == student[k][i])
 				{
-					studentCount[j][k] = studentCount[k][j] = 1;
+					studentCount[k][j] = 1;
 				}
 			}
 		}
 	}
 
+	int maxCount = 0;
+	int ans = 1; // 모든 학생이 다른 반이었다면 1출력
+	for (int i = 0; i < num; i++)
+	{
+		int c = 1;
+		for (int j = 0; j <= num; j++)
+			c += studentCount[i][j];
+		if (maxCount < c)
+		{
+			maxCount = c;
+			ans = i + 1; // 
+		}
+	}
+	cout << ans;
 
 	return 0;
 }
