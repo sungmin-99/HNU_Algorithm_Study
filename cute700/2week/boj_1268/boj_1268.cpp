@@ -25,12 +25,14 @@ int main()
 		}
 	}
 
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i < num; i++) // 지정한 학생
 	{
-		for (int j = 0; j < num; j++)
+		for (int j = 0; j < num; j++) // 비교할 학생
 		{
 			for (int k = 0; k < 5; k++)
 			{
+				if (i == j)
+					break;
 				if (student[i][k] == student[j][k])
 				{
 					studentCount[i]++;
@@ -53,12 +55,12 @@ int main()
 			if (captain > i)
 				captain = i + 1;
 	}
-	cout << captain;
+	cout << captain << endl;
 
-	//for (int i = 0; i < num; i++) // 학생 별로 몇명이랑 같은 반이었는지 카운트 보기
-	//{
-	//	cout << studentCount[i] << ' ';
-	//}
+	for (int i = 0; i < num; i++) // 학생 별로 몇명이랑 같은 반이었는지 카운트 보기
+	{
+		cout << studentCount[i] << ' ';
+	}
 
 	return 0;
 }
