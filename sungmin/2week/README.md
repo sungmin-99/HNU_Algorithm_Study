@@ -153,3 +153,32 @@ else:
 <b>상자를 맨 위에서부터 무게 중심이 바로 아래상자 안에 들어가는지 확인한다.
 <br>문제를 잘 읽으면 쉬운 구현만으로 풀 수 있는 문제</b>
 <br><br><br><br><br><br>
+
+# 4. 임시 반장 정하기
+```python
+n = int(input())
+arr = []
+for _ in range(n):
+    arr.append(list(map(int, input().split())))
+ans = [[i] for i in range(n)]
+for k in range(5):
+    for i in range(n):
+        for j in range(i, n):
+            if arr[i][k] == arr[j][k]:
+                ans[i].append(j)
+                ans[j].append(i)
+
+answer = 0
+check = 0
+for i in range(n):
+    setans = set(ans[i])
+    if len(setans) > check:
+        check = len(setans)
+        answer = i + 1
+print(answer)
+```
+
+<br>
+<b>구현 문제<br>
+같은반이 된적있다면 모두 list에 넣어서 set으로 형변환하여 중복을 삭제하고 비교한다.</b>
+<br><br><br><br><br><br>
