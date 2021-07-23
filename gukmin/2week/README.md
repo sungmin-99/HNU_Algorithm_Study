@@ -42,3 +42,28 @@
 ###### 배운점
 ###### sys.exit를 배웠다 적절히 내장함수를 사용하자 필요한 기능이 있는지 인터넷에 검색 해보자
 ###### 시간줄이는것은 매우 중요하다.
+
+
+
+
+임시반장 정하기
+=============
+
+    n = int(input())
+    stu = [list(map(int,input().split())) for _ in range(n)]
+    kk = []
+
+
+    for i in range(n):
+        total = 0
+        for j in range(5):
+            for k in range(n):
+                if stu[i][j] == stu[k][j]:
+                    total += 1
+        kk.append(total)
+
+
+
+    print(kk.index(max(kk))+1)
+    
+   ###### 중복문제 해결 못해서 틀림 
