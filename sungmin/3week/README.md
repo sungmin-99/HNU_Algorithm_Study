@@ -98,3 +98,21 @@ print(cnt)
 <br>
 <b>원형큐를 구현하고 left를 해야되는지 right를 해야되는지 구분하면 쉽게 해결 가능한 문제</b>
 <br><br><br><br><br><br>
+
+# 3. 나무 자르기
+> 정답코드
+```python
+n = int(input())
+trees = list(map(int, input().split()))
+grow = list(map(int, input().split()))
+
+ans = sum(trees)
+grow.sort()
+for i in range(n):
+    ans += i * grow[i]
+print(ans)
+```
+<br>
+<b>처음에는 자라는 길이와 나무를 매치해서 먼저 잘라야 하는 나무를 골라야된다고 생각했지만<br>
+어떤 나무를 먼저 자르는것은 중요하지 않고 얼마나 자라는 지가 중요했다.</b>
+<br><br><br><br><br><br>
