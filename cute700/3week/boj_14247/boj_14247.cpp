@@ -3,7 +3,7 @@
 #include <algorithm>
 
 using namespace std;
-
+// 나무 자르기
 int main()
 {
 	ios_base::sync_with_stdio(false);
