@@ -11,5 +11,9 @@ int main()
 	int t, n;
 	cin >> t >> n;
 
+	while (t--)
+	{
+
+	}
 
 }
