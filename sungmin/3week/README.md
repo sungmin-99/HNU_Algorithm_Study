@@ -116,3 +116,28 @@ print(ans)
 <b>처음에는 자라는 길이와 나무를 매치해서 먼저 잘라야 하는 나무를 골라야된다고 생각했지만<br>
 어떤 나무를 먼저 자르는것은 중요하지 않고 얼마나 자라는 지가 중요했다.</b>
 <br><br><br><br><br><br>
+
+# 4. 오셀로 재배치
+> 정답코드
+```python
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    bw1 = input()
+    bw2 = input()
+    cnt = 0
+    b = 0
+    w = 0
+    for i in range(n):
+        if bw1[i] != bw2[i]:
+            if bw1[i] == 'B':
+                b += 1
+                cnt += 1
+            else:
+                w += 1
+                cnt += 1
+    print(cnt - min(b, w))
+```
+<br>
+<b>검정돌과 흰돌 한쌍을 뒤집어야 되면 서로 바꿔주는 것으로 cnt에서 빼준다</b>
+<br><br><br><br><br><br>
