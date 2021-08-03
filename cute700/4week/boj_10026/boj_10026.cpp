@@ -18,7 +18,6 @@ void dfs(int x, int y)
 	{
 		int ny = y + dy[i];
 		int nx = x + dx[i];
-		//맵과 닿는 모든구간이 맵의요소와 같아야 dfs돌림
 		if (ny >= 0 && ny <= 100 && nx >= 0 && nx <= 100)
 		{
 			if (!(visited[nx][ny]) && (arr[x][y] == arr[nx][ny]))
@@ -60,8 +59,9 @@ int main()
 			}
 		}
 	}
-	memset(visited, false, sizeof(visited));
+	memset(visited, false, sizeof(visited)); //적록 색약 검사를 위해 방문처리된걸 초기화
 
+	// r과 g를 같이 인식하므로 
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
