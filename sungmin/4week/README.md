@@ -65,3 +65,34 @@ print(ans, ans2)
 <br>
 <b>적록색약이 아닌경우와 적록색약인경우 bfs를 2번 돌린다.</b>
 <br><br><br><br><br><br>
+
+# 2. 등수 구하기
+> 정답 코드
+```python
+import sys
+
+n, point, p = map(int, input().split())
+if n == 0:
+    print("1")
+    sys.exit()
+arr = list(map(int, input().split()))
+arr.append(point)
+arr.sort(reverse=True)
+ans = arr.index(point)
+check = ans
+for i in range(ans, n):
+    if arr[i] == arr[i + 1]:
+        check += 1
+    else:
+        break
+
+if check <= p - 1:
+    print(ans + 1)
+else:
+    print("-1")
+```
+
+<br>
+<b>처음에 등수가 없을때를 고려하지 않아서 여러번 에러가 났다.
+<br>check으로 같은점수가 있을 때 p범위를 넘어가는지 확인하고 ans + 1 또는 -1을 출력한다.</b>
+<br><br><br><br><br><br>
