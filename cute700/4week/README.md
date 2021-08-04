@@ -97,3 +97,95 @@ int main()
 <b> 아직도 맞왜틀이 많이 나오는데 이 문제의 경우 `memset`을 위해 처음엔 `cstring` 헤더를 사용했는데 틀리길래 `string.h`를 사용했더니 맞았다고 뜸. 
 	<br> c++ 버전 문제인지, 원인을 아직 찾지 못함. (원래 cstring이 c언어의 string.h를 c++에서 호환되도록 만든 파일이라고 알고 있었습니다만...)
 <br><br><br><br><br>
+
+# 2. 등수 구하기
+> 1차 접근 : -1이 출력되는 조건을 `n >= p`로 단순하게 생각함
+> <br> 
+> 이 조건에 맞게 `goto`문을 사용하는 등 깔끔하지 못한 코드가 나오게됨
+	
+```{.no-highlight}
+int main()
+{
+	int n, p;
+	long long songScore;
+	int result = 1;
+
+	cin >> n >> songScore >> p;
+	long long* array = new long long[p];
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> array[i];
+	}
+	if (n >= p)
+	{
+		result = -1;
+		goto FINISH;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (songScore < array[i])
+			result++;
+		else
+			break;
+	}
+
+FINISH:
+	cout << result << '\n';
+	return 0;
+}
+	
+```
+	
+### 정답
+```cpp
+#include <iostream>
+using namespace std;
+// 등수 구하기
+
+int main()
+{
+	ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+	int n, p;
+	long long songScore;
+
+	cin >> n >> songScore >> p;
+	long long* array = new long long[p];
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> array[i];
+	}
+
+	int result = 1;
+	int count = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (songScore < array[i])
+			result++;
+		else if (songScore == array[i])
+			result = result;
+		else
+			break;
+		count++; 
+	}
+
+	if (count == p) 
+		result = -1;
+	if (n == 0)
+		result = 1;
+
+	delete[] array;
+	cout << result << '\n';
+	return 0;
+}	
+```
+<b> 1차 시도에서
+<br><br>
+<em>" 만약, 랭킹 리스트가 꽉 차있을 때, 새 점수가 이전 점수보다 더 좋을 때만 점수가 바뀐다. "</em> 이 부분 구현 중 놓치는 부분이 있었다.
+<br>
+</b>
+<strike>아직은 맞왜틀 거릴 때라기보단 좀 더 문제 잘 읽고 핵심을 확실히 파악할 필요가 있다.</strike>
+<br><br><br><br><br>
