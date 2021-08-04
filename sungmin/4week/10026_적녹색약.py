@@ -1,6 +1,3 @@
-# 1. 적록색약
-> 정답 코드
-```python
 from collections import deque
 
 dx = [1, -1, 0, 0]
@@ -60,8 +57,3 @@ for i in range(n):
      ans2 += 1
 
 print(ans, ans2)
-```
-
-<br>
-<b>적록색약이 아닌경우와 적록색약인경우 bfs를 2번 돌린다.</b>
-<br><br><br><br><br><br>
