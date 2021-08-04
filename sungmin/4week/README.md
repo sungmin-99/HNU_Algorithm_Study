@@ -96,3 +96,49 @@ else:
 <b>처음에 등수가 없을때를 고려하지 않아서 여러번 에러가 났다.
 <br>check으로 같은점수가 있을 때 p범위를 넘어가는지 확인하고 ans + 1 또는 -1을 출력한다.</b>
 <br><br><br><br><br><br>
+
+# 3. 영역 구하기
+> 정답 코드
+```python
+import sys
+sys.setrecursionlimit(10000)
+
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+
+def dfs(x, y):
+    answer = 0
+    if not(0 <= x < n and 0 <= y < m):
+        return 0
+    if graph[x][y] == 1:
+        return 0
+    graph[x][y] = 1
+    for i in range(4):
+        nx, ny = x + dx[i], y + dy[i]
+        answer += dfs(nx, ny)
+    return answer + 1
+
+m, n, k = map(int, input().split())
+graph = [[0] * m for _ in range(n)]
+for _ in range(k): # 그래프에 직사각형 찍어주기
+    a, b, c, d = map(int, input().split())
+    for i in range(a, c):
+        for j in range(b, d): # 직사각형의 넓이
+            graph[i][j] = 1
+
+ans = []
+for i in range(n): # 빈 공간 dfs로 찾기
+    for j in range(m):
+        if graph[i][j] == 0:
+            ans.append(dfs(i, j))
+
+ans.sort()
+print(len(ans))
+for i in range(len(ans)):
+    print(ans[i], end = " ")
+```
+
+<br>
+<b>직사각형을 찍어주고 빈공간을 dfs탐색한다.</b>
+<br>배열의 번호가 2차원배열과 달라서 헷갈린다...
+<br><br><br><br><br><br>
