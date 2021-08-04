@@ -28,7 +28,7 @@ void dfs(int x, int y)
 	{
 		int ny = y + dy[i];
 		int nx = x + dx[i];
-		if (!(visited[nx][ny]) && (arr[x][y] == arr[nx][ny])) // 방문 안했으면서 먼저 값과 값이 같다면 dfs
+		if (!(visited[nx][ny]) && (arr[x][y] == arr[nx][ny])) // 방문 하지 않았고, 먼저 값과 값이 같다면 dfs
 		{
 			dfs(nx, ny);
 		}
@@ -64,8 +64,8 @@ int main()
 			}
 		}
 	}
-	memset(visited, false, sizeof(visited)); //적록 색약 검사를 위해 방문처리된걸 초기화
-
+	memset(visited, false, sizeof(visited)); //적록 색약의 경우를 검사하기 위해 앞서 방문 처리해 준걸 초기화
+	
 	// r과 g를 같이 인식하므로 
 	for (int i = 0; i < n; i++)
 	{
@@ -93,4 +93,7 @@ int main()
 ```
 <b> dfs 함수에서 방문처리 부분과 (x, y)는 (nx, ny)(4 방향)과 같다는 것 만 증명해주고 <br>
 정상의 경우, 색약의 경우 반복문을 나눠서 계산해주면 되는 문제
+<br><br>
+<b> 아직도 맞왜틀이 많이 나오는데 이 문제의 경우 `memset`을 위해 처음엔 `cstring` 헤더를 사용했는데 틀리길래 `string.h`를 사용했더니 맞았다고 뜸. 
+	<br> c++ 버전 문제인지, 원인을 아직 찾지 못함. (원래 cstring이 c언어의 string.h를 c++에서 호환되도록 만든 파일이라고 알고 있었습니다만...)
 <br><br><br><br><br>
