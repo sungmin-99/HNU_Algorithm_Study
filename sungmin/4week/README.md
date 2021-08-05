@@ -142,3 +142,30 @@ for i in range(len(ans)):
 <b>직사각형을 찍어주고 빈공간을 dfs탐색한다.</b>
 <br>배열의 번호가 2차원배열과 달라서 헷갈린다...
 <br><br><br><br><br><br>
+
+# 4. 디지털 티비
+> 정답 코드
+```python
+n = int(input())
+arr = []
+for i in range(n):
+    channel = input()
+    if channel == 'KBS1':
+        num1 = i
+    elif channel == 'KBS2':
+        num2 = i
+    arr.append(channel)
+
+ans = ''
+ans += '1' * num1
+ans += '4' * num1
+if num1 > num2:
+    num2 += 1
+ans += '1' * num2
+ans += '4' * (num2 - 1)
+print(ans)
+```
+
+<br>
+<b>꼭 테스트 케이스를 통과하지 않아도 된다. 1,4 만을 이용해서 채널 옮기는 그리디를 사용하였다.</b>
+<br><br><br><br><br><br>
