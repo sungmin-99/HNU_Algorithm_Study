@@ -1,0 +1,15 @@
+n = int(input())
+ch = []
+
+for _ in range(n):
+    ch.append(input())
+
+a = ch.index('KBS1')
+A = a*'1'+a*'4'
+ch.pop(a)
+ch.insert(0,'KBS1')
+print(ch)
+b = ch.index('KBS2')
+B = b*'1'+ b*'4'
+print(ch)
+print(A+B)
