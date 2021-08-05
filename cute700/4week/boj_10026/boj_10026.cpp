@@ -6,13 +6,12 @@ using namespace std;
 
 int n;
 char arr[101][101];
-bool visited[101][101];
+bool visited[101][101] = { false, };
 int dx[4] = { 0,0,1,-1 };
 int dy[4] = { 1,-1,0,0 };
 
 void dfs(int x, int y)
 {
-
 	visited[x][y] = true;
 	if (x < 0 || x > 100 || y < 0 || y > 100)
 		exit(0);
