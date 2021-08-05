@@ -11,7 +11,7 @@ for j in js:
 
 
 for k in ls:
-    while True:
+    while 1:
         if deq.index(k) == 0:
             deq.popleft()
             break
