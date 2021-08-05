@@ -1,0 +1,19 @@
+from collections import deque
+n = int(input())
+deq = deque()
+list = []
+cnt = 0
+for _ in range(n):
+    list.append(input())
+for i in list:
+    deq.clear()
+    for j in i:
+        deq.append(j)
+        if len(deq) > 1:
+            if deq[-1] == deq[-2]:
+                deq.pop()
+                deq.pop()
+    if len(deq) == 0:
+        cnt += 1
+
+print(cnt)
