@@ -1,4 +1,4 @@
-# 1. 적색약
+# 1. 적록색약
 > 1차 접근 : 먼저 문제를 보자마자 dfs가 가능하겠구나 생각이듬. dfs를 r, g, b, rg (총 4개)를 만들어 방문처리 없이 하려고 생각함. 
 > <br> 
 > 이 방법은 아무리 생각해도 너무 비효율적인거 같아 dfs 하나와 방문처리를 이용해 코드를 줄여보고자 함
@@ -189,3 +189,93 @@ int main()
 </b>
 <strike>아직은 맞왜틀 거릴 때라기보단 좀 더 문제 잘 읽고 핵심을 확실히 파악할 필요가 있다.</strike>
 <br><br><br><br><br>
+	
+# 3. 영역 구하기
+
+### 정답
+	
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int arr[101][101];
+bool visited[101][101];
+int m, n, k;
+int cnt;
+vector<int> areaCount;
+
+int dx[4] = { 1, -1, 0, 0 };
+int dy[4] = { 0, 0, 1, -1 };
+
+void dfs(int x, int y)
+{
+	int nx, ny;
+
+	visited[x][y] = true;
+	cnt++;
+
+	for (int i = 0; i < 4; i++)
+	{
+		nx = x + dx[i];
+		ny = y + dy[i];
+
+		if (nx >= 0 && ny >= 0 && nx < m && ny < n && !visited[nx][ny])
+		{
+			dfs(nx, ny);
+		}
+	}
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	cin >> m >> n >> k;  // y, x, 직사각형 개수
+
+	for (int i = 0; i < k; i++) // 좌표 입력 (좌하단, 우상단)
+	{
+		int xLeft, yLeft, xRight, yRight;
+
+		cin >> xLeft >> yLeft >> xRight >> yRight;
+		for (int j = yLeft; j < yRight; j++)
+		{
+			for (int k = xLeft; k < xRight; k++)
+			{
+				arr[j][k] = 1;
+				visited[j][k] = true;
+			}
+		}
+	}
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (arr[i][j] == 0 && visited[i][j] == false)
+			{
+				cnt = 0;
+				dfs(i, j);
+				areaCount.emplace_back(cnt);
+			}
+		}
+	}
+
+	sort(areaCount.begin(), areaCount.end());
+	int size = areaCount.size();
+
+	cout << size << '\n';
+	for (int i = 0; i < size; i++)
+		cout << areaCount[i] << ' ';;
+
+	return 0;
+}
+```		 
+> 이 문제도 dfs구나! 생각이듬.  
+> <br> 
+> 영역의 개수와 각각의 넓이를 구해주는 부분 구현에 고민이 많았다...
+> <br>
+> 결국 벡터를 사용해 `size()` 를 구해주고, 벡터내에 쌓여있는 원소들을 출력해주는 방법으로 해주었다.
