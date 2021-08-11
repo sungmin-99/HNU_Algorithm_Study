@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boj_1057", "boj_1057\boj_1057.vcxproj", "{E38B8225-9B1E-418C-B5FB-8EB0294545CC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boj_2841", "boj_2841\boj_2841.vcxproj", "{CAD79282-1C67-452F-90A3-87FF0A28D39F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{E38B8225-9B1E-418C-B5FB-8EB0294545CC}.Release|x64.Build.0 = Release|x64
 		{E38B8225-9B1E-418C-B5FB-8EB0294545CC}.Release|x86.ActiveCfg = Release|Win32
 		{E38B8225-9B1E-418C-B5FB-8EB0294545CC}.Release|x86.Build.0 = Release|Win32
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Debug|x64.ActiveCfg = Debug|x64
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Debug|x64.Build.0 = Debug|x64
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Debug|x86.ActiveCfg = Debug|Win32
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Debug|x86.Build.0 = Debug|Win32
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Release|x64.ActiveCfg = Release|x64
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Release|x64.Build.0 = Release|x64
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Release|x86.ActiveCfg = Release|Win32
+		{CAD79282-1C67-452F-90A3-87FF0A28D39F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
