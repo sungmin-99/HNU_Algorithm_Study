@@ -81,3 +81,40 @@ print(ans)
 <b>브루트포스 문제</b>
 <br> 브루트 포스라고 적혀있지만 그리디 문제에 가까운 것 같다. 조금만 생각해보며 어렵지 않은 문제
 <br><br><br><br><br><br>
+
+# 4. 외계인의 기타 연주
+> 정답 코드
+```python
+import sys
+input = sys.stdin.readline
+
+n, p = map(int, input().split())
+
+stack = [[] for _ in range(8)]
+cnt = 0
+
+for _ in range(n):
+    a, b = map(int, input().split())
+    while True:
+        if stack[a] == []:
+            stack[a].append(b)
+            cnt += 1
+            break
+        elif stack[a][-1] == b:
+            break
+        elif stack[a][-1] > b:
+            stack[a].pop()
+            cnt += 1
+            continue
+        elif stack[a][-1] < b:
+            stack[a].append(b)
+            cnt += 1
+            break
+
+print(cnt)
+```
+
+<br>
+<b>자료구조 스택 문제</b>
+<br> 스택구조를 이해하고 활용하면 쉽게 해결 가능
+<br><br><br><br><br><br>
