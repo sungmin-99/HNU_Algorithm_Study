@@ -40,7 +40,7 @@ for i in range(1, v + 1):
 <br>
 <b>다익스트라 알고리즘</b>
 <br>
-![dijkstra algorithm](./dijkstra algorithm.png)
+![dijkstraalgorithm](./dijkstraalgorithm.png)
 <br>
 우선순위 큐를 이용해서 cost가 적은 노드부터 탐색해서 시간복잡도를 단축한다.
 <br><br><br><br><br><br>
