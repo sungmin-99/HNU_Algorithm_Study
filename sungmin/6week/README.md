@@ -72,3 +72,59 @@ for i in arr:
 sort의 key를 이용하여 정렬하는 순서를 지정해준다.
 <br>정수를 모두 합하는 것은 따로 함수를 만들어 주어야 한다.
 <br><br><br><br><br><br>
+
+# 3. 이친수
+> 정답 코드
+```python
+n = int(input())
+dp = [0] * (n + 1)
+if n == 1:
+    dp.append(1)
+dp[1], dp[2] = 1, 1
+for i in range(3, n + 1):
+    dp[i] = dp[i - 1] + dp[i - 2]
+print(dp[n])
+```
+
+<br>
+<b>다이나믹 프로그래밍</b>
+<br> dp[n] = dp[n-1] + dp[n-2] 라는 규칙성이 있다.
+<br><br><br><br><br><br>
+
+# 4. 트리의 부모 찾기
+> 정답 코드
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+def bfs(x):
+    q = deque()
+    q.appendleft(x)
+    pNode[x] = 1
+    while q:
+        x = q.pop()
+        for i in graph[x]:
+            if pNode[i] == 0:
+                pNode[i] = x
+                q.appendleft(i)
+    return
+
+n = int(input())
+graph = [[] for _ in range(n + 1)]
+for _ in range(n - 1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+pNode = [0] * (n + 1)
+bfs(1)
+for i in range(2, n + 1):
+    print(pNode[i])
+```
+
+<br>
+<b>bfs 알고리즘</b>
+<br> bfs 알고리즘으로 루트노드부터 탐색 시작한다.
+<br> 바로 이전에 탐색했던 노드를 부모노드로 기록한다.
+<br><br><br><br><br><br>
