@@ -24,11 +24,6 @@
             <br />
             <a href="https://github.com/cute700">cute700</a>
         </td>
-        <td align="center" width="130px">
-            <a href="https://github.com/kimgukmin-99"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/84234658?v=4"/></a>
-            <br />
-            <a href="https://github.com/kimgukmin-99">kimgukmin-99</a>
-        </td>
 </table>
 
 <br>
