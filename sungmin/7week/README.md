@@ -42,6 +42,37 @@ print(dp[n])
 <br>코드를 수정할것도 없이 value만 삭제하니 귀신같이 맞았습니다가 나왔다...
 <br><br><br><br><br><br>
 
+# 2. 본대 산책
+> 정답
+```python
+dp = [1, 0, 0, 0, 0, 0, 0, 0]
+
+def walk(x):
+    tmp = [0 for _ in range(8)]
+    tmp[0] = x[1] + x[3]
+    tmp[1] = x[0] + x[2] + x[3]
+    tmp[2] = x[1] + x[3] + x[4] + x[5]
+    tmp[3] = x[0] + x[1] + x[2] + x[5]
+    tmp[4] = x[2] + x[5] + x[6]
+    tmp[5] = x[3] + x[2] + x[4] + x[7]
+    tmp[6] = x[4] + x[7]
+    tmp[7] = x[5] + x[6]
+
+    for i in range(8):
+        tmp[i] = tmp[i] % 1000000007
+    return tmp
+
+for i in range(int(input())):
+    dp = walk(dp)
+
+print(dp[0])
+```
+
+<br>
+<b>그래프탐색, 다이나믹 프로그래밍</b>
+<br>그래프 탐색 문제인 줄 알고 선택했으나 그래프가 고정돼 있는 다이나믹 프로그래밍 문제였다.
+<br><br><br>
+
 # 3. 인구이동
 > 1차 시기
 ```python
