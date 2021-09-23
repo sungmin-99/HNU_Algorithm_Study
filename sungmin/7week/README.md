@@ -144,3 +144,27 @@ print(ans)
 <br>국경선을 개방하는 것까지는 문제 없는데 인구이동에서 문제가 발생한다...
 <br>시뮬레이션 문제는 어디서 문제가 생긴지 알면서도 고치는게 쉽지 않다.
 <br><br><br>
+
+# 4. 이항 계수2
+> 정답
+```python
+n, k = map(int, input().split())
+dp = [[0] for i in range(1001)]
+dp[1].append(1)
+for i in range(2, 1001):
+    for j in range(1, i + 1):
+        if j == 1:
+            dp[i].append(1)
+        elif j == i:
+            dp[i].append(1)
+        else:
+            dp[i].append(dp[i - 1][j - 1] + dp[i - 1][j])
+print(dp[n + 1][k + 1] % 10007)
+```
+
+<br>
+<b>다이나믹 프로그래밍</b>
+<br>조합인 줄 알았는데 다이나믹 프로그래밍이였다.
+<br><img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzmTo7%2FbtqyTkFV9T1%2FMFwCDAm4NHLKKcQ9FwiZpk%2Fimg.jpg">
+<br> 이 표를 생각하면 쉽게 구현할 수 있다.
+<br><br><br>
