@@ -168,5 +168,3 @@ print(dp[n + 1][k + 1] % 10007)
 <br><img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzmTo7%2FbtqyTkFV9T1%2FMFwCDAm4NHLKKcQ9FwiZpk%2Fimg.jpg">
 <br> 이 표를 생각하면 쉽게 구현할 수 있다.
 <br><br><br>
-
-test
